@@ -1,0 +1,21 @@
+{
+  "name": "homebridge-foscamp1-temperature",
+  "version": "1.0.0",
+  "description": "Temperature sensor from Foscam P1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "author": "Georgios Andritsos <ageorgios@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "dependencies": {
+    "xml2js": "^0.4.17"
+  }
+}
