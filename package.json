@@ -16,6 +16,16 @@
     "homebridge": ">=0.2.0"
   },
   "dependencies": {
+    "http": "0.0.0",
     "xml2js": "^0.4.17"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ageorgios/homebridge-foscam-temperature.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ageorgios/homebridge-foscam-temperature/issues"
+  },
+  "homepage": "https://github.com/ageorgios/homebridge-foscam-temperature#readme"
 }
