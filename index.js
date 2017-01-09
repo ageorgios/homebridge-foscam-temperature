@@ -31,7 +31,7 @@ function FoscamTemperatureAccessory(log, config) {
 FoscamTemperatureAccessory.prototype.getState = function(callback) {
   var that = this
   xmlToJson("http://" + this.hostname + ":" + this.port +"/cgi-bin/CGIProxy.fcgi?cmd=getTemperatureState&usr="+this.username+"&pwd="+this.password, function(err, data) {
-    if (err) { that.log("Foscam Temperature Error: " err); return callback(err) }
+    if (err) return callback(err);
     that.log("Foscam Temperature: " + JSON.stringify(data, null, 2));
     callback(null, parseFloat(data.CGI_Result.degree[0]))
   })
