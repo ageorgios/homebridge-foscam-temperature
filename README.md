@@ -1,7 +1,13 @@
-# homebridge-foscamp1-temperature
+# homebridge-foscam-temperature
 
 This is a plugin for [homebridge](https://github.com/nfarina/homebridge) which makes it possible to create a temperature sensor
-in HomeKit for the Foscam P1 Baby Monitor.
+in HomeKit for Foscam Cameras that have temperature sensor.
+
+# Information
+The temperature is retrieved from the CGI API of Foscam Cameras.
+```
+http://hostname:port/cgi-bin/CGIProxy.fcgi?cmd=getTemperatureState
+```
 
 ## Example config
 

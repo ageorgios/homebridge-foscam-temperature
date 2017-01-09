@@ -6,34 +6,38 @@ module.exports = function(homebridge) {
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
 
-  homebridge.registerAccessory("homebridge-foscamp1-temperature", "FoscamP1Temperature", FoscamP1TemperatureAccessory);
+  homebridge.registerAccessory("homebridge-foscam-temperature", "FoscamTemperature", FoscamTemperatureAccessory);
 }
 
-function FoscamP1TemperatureAccessory(log, config) {
+function FoscamTemperatureAccessory(log, config) {
   this.log = log;
+  this.config = config;
   this.name = config["name"];
   this.description = config["description"];
-  this.hostname = config["hostname"];
-  this.port = config["port"];
-  this.username = config["username"];
-  this.password = config["password"];
+  this.hostname = config["hostname"] || "foscam";
+  this.port = config["port"] || "88";
+  this.username = config["username"] || "admin";
+  this.password = config["password"] || "root";
 
   this.service = new Service.TemperatureSensor(this.name);
 
   this.service
     .getCharacteristic(Characteristic.CurrentTemperature)
     .on('get', this.getState.bind(this));
+    
+  this.log("Foscam Temperature Initialized")
 }
 
-FoscamP1TemperatureAccessory.prototype.getState = function(callback) {
+FoscamTemperatureAccessory.prototype.getState = function(callback) {
+  var that = this
   xmlToJson("http://" + this.hostname + ":" + this.port +"/cgi-bin/CGIProxy.fcgi?cmd=getTemperatureState&usr="+this.username+"&pwd="+this.password, function(err, data) {
-    if (err) return callback(err)
-    console.log(JSON.stringify(data, null, 2));
-    callback(null, 21.0)
+    if (err) { that.log("Foscam Temperature Error: " err); return callback(err) }
+    that.log("Foscam Temperature: " + JSON.stringify(data, null, 2));
+    callback(null, parseFloat(data.CGI_Result.degree[0]))
   })
 }
 
-FoscamP1TemperatureAccessory.prototype.getServices = function() {
+FoscamTemperatureAccessory.prototype.getServices = function() {
   return [this.service];
 }
 

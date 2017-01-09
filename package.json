@@ -1,7 +1,7 @@
 {
-  "name": "homebridge-foscamp1-temperature",
+  "name": "homebridge-foscam-temperature",
   "version": "1.0.0",
-  "description": "Temperature sensor from Foscam P1",
+  "description": "Temperature sensor from Foscam Cameras that have temperature sensor",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
