@@ -16,7 +16,7 @@ http://hostname:port/cgi-bin/CGIProxy.fcgi?cmd=getTemperatureState
   "accessory": "FoscamTemperature",
   "name": "Foscam Temperature Sensor",
   "description": "The temperature sensor from a Foscam P1 Camera",
-  "hostname": "The hostnmae of the foscam camera",
+  "hostname": "The hostname of the foscam camera",
   "port": "The port of the foscam camera",
   "username": "username of the foscam",
   "password": "password of the foscam"
