@@ -13,8 +13,8 @@ http://hostname:port/cgi-bin/CGIProxy.fcgi?cmd=getTemperatureState
 
 ```json
 {
-  "accessory": "FoscamP1TemperatureAccessory",
-  "name": "Foscam P1 Temperature Sensor",
+  "accessory": "FoscamTemperature",
+  "name": "Foscam Temperature Sensor",
   "description": "The temperature sensor from a Foscam P1 Camera",
   "hostname": "The hostnmae of the foscam camera",
   "port": "The port of the foscam camera",
